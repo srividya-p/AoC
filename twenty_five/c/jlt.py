@@ -1,6 +1,10 @@
+from pathlib import Path
+from twenty_five.timer import timeit
+
 BATS = 100
 
 
+@timeit
 def joltage1(banks):
     total = 0
     for bank in banks:
@@ -23,6 +27,7 @@ def joltage1(banks):
     return total
 
 
+@timeit
 def joltage2(banks):
     SELECT = 12
 
@@ -44,7 +49,7 @@ def joltage2(banks):
 
 if __name__ == "__main__":
     banks = None
-    with open("in.txt", "r") as file:
+    with open(Path(__file__).parent / "in.txt", "r") as file:
         banks = file.read().strip().split("\n")
 
     print(joltage1(banks))

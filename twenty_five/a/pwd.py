@@ -1,3 +1,8 @@
+from pathlib import Path
+from twenty_five.timer import timeit
+
+
+@timeit
 def password1(moves):
     val, count = 50, 0
 
@@ -17,6 +22,7 @@ def password1(moves):
     return count
 
 
+@timeit
 def password2(moves):
     val, count = 50, 0
 
@@ -38,7 +44,7 @@ def password2(moves):
 
 if __name__ == "__main__":
     moves = None
-    with open("in.txt", "r") as file:
+    with open(Path(__file__).parent / "in.txt", "r") as file:
         moves = file.read().strip().split("\n")
 
     print(password1(moves))

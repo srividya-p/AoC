@@ -1,3 +1,7 @@
+from pathlib import Path
+from twenty_five.timer import timeit
+
+@timeit
 def sum_id1(ranges):
     def is_repeating_1(n):
         s = str(n)
@@ -14,6 +18,7 @@ def sum_id1(ranges):
     return total
 
 
+@timeit
 def sum_id2(ranges):
     def is_repeating_2(n):
         s = str(n)
@@ -31,7 +36,7 @@ def sum_id2(ranges):
 
 if __name__ == "__main__":
     ranges = None
-    with open("in.txt", "r") as file:
+    with open(Path(__file__).parent / "in.txt", "r") as file:
         ranges = file.read().strip().split(",")
         ranges = [tuple(map(int, r.split("-"))) for r in ranges]
 
